@@ -1,0 +1,12 @@
+[Unit]
+Description=fCGI script that returns the client IP address
+
+[Service]
+ExecStart=/usr/bin/spawn-fcgi -n /usr/share/nginx/fcgi/myip.cgi -s /var/run/fcgi/myip.sock
+Type=simple
+User=http
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
